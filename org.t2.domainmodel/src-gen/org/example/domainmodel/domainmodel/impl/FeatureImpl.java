@@ -23,9 +23,10 @@ import org.example.domainmodel.domainmodel.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.FeatureImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.FeatureImpl#getNot <em>Not</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.FeatureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.FeatureImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.FeatureImpl#getKey <em>Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +34,24 @@ import org.example.domainmodel.domainmodel.Type;
 public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 {
   /**
-   * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
+   * The default value of the '{@link #getNot() <em>Not</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMany()
+   * @see #getNot()
    * @generated
    * @ordered
    */
-  protected static final boolean MANY_EDEFAULT = false;
+  protected static final String NOT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isMany() <em>Many</em>}' attribute.
+   * The cached value of the '{@link #getNot() <em>Not</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMany()
+   * @see #getNot()
    * @generated
    * @ordered
    */
-  protected boolean many = MANY_EDEFAULT;
+  protected String not = NOT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -83,6 +84,26 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected Type type;
 
   /**
+   * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey()
+   * @generated
+   * @ordered
+   */
+  protected static final String KEY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey()
+   * @generated
+   * @ordered
+   */
+  protected String key = KEY_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -108,9 +129,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isMany()
+  public String getNot()
   {
-    return many;
+    return not;
   }
 
   /**
@@ -118,12 +139,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMany(boolean newMany)
+  public void setNot(String newNot)
   {
-    boolean oldMany = many;
-    many = newMany;
+    String oldNot = not;
+    not = newNot;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FEATURE__MANY, oldMany, many));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FEATURE__NOT, oldNot, not));
   }
 
   /**
@@ -197,18 +218,43 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getKey()
+  {
+    return key;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKey(String newKey)
+  {
+    String oldKey = key;
+    key = newKey;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FEATURE__KEY, oldKey, key));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case DomainmodelPackage.FEATURE__MANY:
-        return isMany();
+      case DomainmodelPackage.FEATURE__NOT:
+        return getNot();
       case DomainmodelPackage.FEATURE__NAME:
         return getName();
       case DomainmodelPackage.FEATURE__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case DomainmodelPackage.FEATURE__KEY:
+        return getKey();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,14 +269,17 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case DomainmodelPackage.FEATURE__MANY:
-        setMany((Boolean)newValue);
+      case DomainmodelPackage.FEATURE__NOT:
+        setNot((String)newValue);
         return;
       case DomainmodelPackage.FEATURE__NAME:
         setName((String)newValue);
         return;
       case DomainmodelPackage.FEATURE__TYPE:
         setType((Type)newValue);
+        return;
+      case DomainmodelPackage.FEATURE__KEY:
+        setKey((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -246,14 +295,17 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case DomainmodelPackage.FEATURE__MANY:
-        setMany(MANY_EDEFAULT);
+      case DomainmodelPackage.FEATURE__NOT:
+        setNot(NOT_EDEFAULT);
         return;
       case DomainmodelPackage.FEATURE__NAME:
         setName(NAME_EDEFAULT);
         return;
       case DomainmodelPackage.FEATURE__TYPE:
         setType((Type)null);
+        return;
+      case DomainmodelPackage.FEATURE__KEY:
+        setKey(KEY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -269,12 +321,14 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case DomainmodelPackage.FEATURE__MANY:
-        return many != MANY_EDEFAULT;
+      case DomainmodelPackage.FEATURE__NOT:
+        return NOT_EDEFAULT == null ? not != null : !NOT_EDEFAULT.equals(not);
       case DomainmodelPackage.FEATURE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainmodelPackage.FEATURE__TYPE:
         return type != null;
+      case DomainmodelPackage.FEATURE__KEY:
+        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
     }
     return super.eIsSet(featureID);
   }
@@ -290,10 +344,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (many: ");
-    result.append(many);
+    result.append(" (not: ");
+    result.append(not);
     result.append(", name: ");
     result.append(name);
+    result.append(", key: ");
+    result.append(key);
     result.append(')');
     return result.toString();
   }

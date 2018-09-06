@@ -3,6 +3,7 @@
  */
 package org.example.domainmodel.domainmodel;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.example.domainmodel.domainmodel;
  * @model
  * @generated
  */
-public interface Type extends AbstractElement
+public interface Type extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -80,34 +80,10 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.PACKAGE_DECLARATION:
-      {
-        PackageDeclaration packageDeclaration = (PackageDeclaration)theEObject;
-        T result = casePackageDeclaration(packageDeclaration);
-        if (result == null) result = caseAbstractElement(packageDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.ABSTRACT_ELEMENT:
-      {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.IMPORT:
-      {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
-        if (result == null) result = caseAbstractElement(import_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DomainmodelPackage.TYPE:
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
-        if (result == null) result = caseAbstractElement(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -116,7 +92,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
         DataType dataType = (DataType)theEObject;
         T result = caseDataType(dataType);
         if (result == null) result = caseType(dataType);
-        if (result == null) result = caseAbstractElement(dataType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,7 +100,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
         Entity entity = (Entity)theEObject;
         T result = caseEntity(entity);
         if (result == null) result = caseType(entity);
-        if (result == null) result = caseAbstractElement(entity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,54 +126,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDomainmodel(Domainmodel object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePackageDeclaration(PackageDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractElement(AbstractElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImport(Import object)
   {
     return null;
   }

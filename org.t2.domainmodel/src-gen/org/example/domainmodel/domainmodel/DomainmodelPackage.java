@@ -86,90 +86,6 @@ public interface DomainmodelPackage extends EPackage
   int DOMAINMODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.AbstractElementImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getAbstractElement()
-   * @generated
-   */
-  int ABSTRACT_ELEMENT = 2;
-
-  /**
-   * The number of structural features of the '<em>Abstract Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.PackageDeclarationImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getPackageDeclaration()
-   * @generated
-   */
-  int PACKAGE_DECLARATION = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_DECLARATION__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_DECLARATION__ELEMENTS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Package Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_DECLARATION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ImportImpl <em>Import</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.ImportImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getImport()
-   * @generated
-   */
-  int IMPORT = 3;
-
-  /**
-   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT__IMPORTED_NAMESPACE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Import</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -177,7 +93,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getType()
    * @generated
    */
-  int TYPE = 4;
+  int TYPE = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -186,7 +102,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int TYPE__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -195,7 +111,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -205,7 +121,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 5;
+  int DATA_TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -233,7 +149,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 6;
+  int ENTITY = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -279,16 +195,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 7;
+  int FEATURE = 4;
 
   /**
-   * The feature id for the '<em><b>Many</b></em>' attribute.
+   * The feature id for the '<em><b>Not</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__MANY = 0;
+  int FEATURE__NOT = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -309,13 +225,22 @@ public interface DomainmodelPackage extends EPackage
   int FEATURE__TYPE = 2;
 
   /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__KEY = 3;
+
+  /**
    * The number of structural features of the '<em>Feature</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = 3;
+  int FEATURE_FEATURE_COUNT = 4;
 
 
   /**
@@ -338,69 +263,6 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EReference getDomainmodel_Elements();
-
-  /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.PackageDeclaration <em>Package Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Package Declaration</em>'.
-   * @see org.example.domainmodel.domainmodel.PackageDeclaration
-   * @generated
-   */
-  EClass getPackageDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.PackageDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.example.domainmodel.domainmodel.PackageDeclaration#getName()
-   * @see #getPackageDeclaration()
-   * @generated
-   */
-  EAttribute getPackageDeclaration_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.PackageDeclaration#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see org.example.domainmodel.domainmodel.PackageDeclaration#getElements()
-   * @see #getPackageDeclaration()
-   * @generated
-   */
-  EReference getPackageDeclaration_Elements();
-
-  /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.AbstractElement <em>Abstract Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Abstract Element</em>'.
-   * @see org.example.domainmodel.domainmodel.AbstractElement
-   * @generated
-   */
-  EClass getAbstractElement();
-
-  /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Import <em>Import</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Import</em>'.
-   * @see org.example.domainmodel.domainmodel.Import
-   * @generated
-   */
-  EClass getImport();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Import#getImportedNamespace <em>Imported Namespace</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
-   * @see org.example.domainmodel.domainmodel.Import#getImportedNamespace()
-   * @see #getImport()
-   * @generated
-   */
-  EAttribute getImport_ImportedNamespace();
 
   /**
    * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Type <em>Type</em>}'.
@@ -476,15 +338,15 @@ public interface DomainmodelPackage extends EPackage
   EClass getFeature();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Feature#isMany <em>Many</em>}'.
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Feature#getNot <em>Not</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Many</em>'.
-   * @see org.example.domainmodel.domainmodel.Feature#isMany()
+   * @return the meta object for the attribute '<em>Not</em>'.
+   * @see org.example.domainmodel.domainmodel.Feature#getNot()
    * @see #getFeature()
    * @generated
    */
-  EAttribute getFeature_Many();
+  EAttribute getFeature_Not();
 
   /**
    * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Feature#getName <em>Name</em>}'.
@@ -507,6 +369,17 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EReference getFeature_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Feature#getKey <em>Key</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see org.example.domainmodel.domainmodel.Feature#getKey()
+   * @see #getFeature()
+   * @generated
+   */
+  EAttribute getFeature_Key();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -548,60 +421,6 @@ public interface DomainmodelPackage extends EPackage
      * @generated
      */
     EReference DOMAINMODEL__ELEMENTS = eINSTANCE.getDomainmodel_Elements();
-
-    /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.PackageDeclarationImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getPackageDeclaration()
-     * @generated
-     */
-    EClass PACKAGE_DECLARATION = eINSTANCE.getPackageDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PACKAGE_DECLARATION__NAME = eINSTANCE.getPackageDeclaration_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PACKAGE_DECLARATION__ELEMENTS = eINSTANCE.getPackageDeclaration_Elements();
-
-    /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.AbstractElementImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getAbstractElement()
-     * @generated
-     */
-    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
-
-    /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ImportImpl <em>Import</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.ImportImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getImport()
-     * @generated
-     */
-    EClass IMPORT = eINSTANCE.getImport();
-
-    /**
-     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
 
     /**
      * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.TypeImpl <em>Type</em>}' class.
@@ -668,12 +487,12 @@ public interface DomainmodelPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
-     * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Not</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FEATURE__MANY = eINSTANCE.getFeature_Many();
+    EAttribute FEATURE__NOT = eINSTANCE.getFeature_Not();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -690,6 +509,14 @@ public interface DomainmodelPackage extends EPackage
      * @generated
      */
     EReference FEATURE__TYPE = eINSTANCE.getFeature_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FEATURE__KEY = eINSTANCE.getFeature_Key();
 
   }
 

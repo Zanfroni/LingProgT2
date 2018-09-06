@@ -3,25 +3,8 @@ grammar org.example.domainmodel.Domainmodel with
  
 generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
  
-Domainmodel:
-    (elements+=AbstractElement)*;
- 
-PackageDeclaration:
-    'package' name=QualifiedName '{'
-        (elements+=AbstractElement)*
-    '}';
- 
-AbstractElement:
-    PackageDeclaration | Type | Import;
- 
-QualifiedName:
-    ID ('.' ID)*;
- 
-Import:
-    'import' importedNamespace=QualifiedNameWithWildcard;
-  
-QualifiedNameWithWildcard:
-    QualifiedName '.*'?;
+Domainmodel :
+    (elements+=Type)*;
   
 Type:
     DataType | Entity;
@@ -30,9 +13,14 @@ DataType:
     'datatype' name=ID;
  
 Entity:
-    'entity' name=ID ('extends' superType=[Entity|QualifiedName])? '{'
+    'entity' name=ID ('extends' superType=[Entity])? '{'
         (features+=Feature)*
     '}';
  
 Feature:
-    (many?='many')? name=ID ':' type=[Type|QualifiedName];
+    (not='NOT')? 'NULL' name=ID ':' type=[Type] (key=KEY 'KEY')?
+;
+
+terminal KEY:
+    'PRIMARY' | 'FOREIGN'
+    ;

@@ -27,7 +27,7 @@ public interface Domainmodel extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.example.domainmodel.domainmodel.AbstractElement}.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.Type}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface Domainmodel extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<Type> getElements();
 
 } // Domainmodel

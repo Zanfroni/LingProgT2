@@ -19,8 +19,6 @@ import org.example.domainmodel.domainmodel.Domainmodel;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
 import org.example.domainmodel.domainmodel.Entity;
 import org.example.domainmodel.domainmodel.Feature;
-import org.example.domainmodel.domainmodel.Import;
-import org.example.domainmodel.domainmodel.PackageDeclaration;
 import org.example.domainmodel.services.DomainmodelGrammarAccess;
 
 @SuppressWarnings("all")
@@ -49,12 +47,6 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case DomainmodelPackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
 				return; 
-			case DomainmodelPackage.IMPORT:
-				sequence_Import(context, (Import) semanticObject); 
-				return; 
-			case DomainmodelPackage.PACKAGE_DECLARATION:
-				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -62,7 +54,6 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns DataType
 	 *     Type returns DataType
 	 *     DataType returns DataType
 	 *
@@ -85,7 +76,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Domainmodel returns Domainmodel
 	 *
 	 * Constraint:
-	 *     elements+=AbstractElement+
+	 *     elements+=Type+
 	 */
 	protected void sequence_Domainmodel(ISerializationContext context, Domainmodel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -94,12 +85,11 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Entity
 	 *     Type returns Entity
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (name=ID superType=[Entity|QualifiedName]? features+=Feature*)
+	 *     (name=ID superType=[Entity|ID]? features+=Feature*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -111,41 +101,9 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (many?='many'? name=ID type=[Type|QualifiedName])
+	 *     (not='NOT'? name=ID type=[Type|ID] key=KEY?)
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Import
-	 *     Import returns Import
-	 *
-	 * Constraint:
-	 *     importedNamespace=QualifiedNameWithWildcard
-	 */
-	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PackageDeclaration returns PackageDeclaration
-	 *     AbstractElement returns PackageDeclaration
-	 *
-	 * Constraint:
-	 *     (name=QualifiedName elements+=AbstractElement*)
-	 */
-	protected void sequence_PackageDeclaration(ISerializationContext context, PackageDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
