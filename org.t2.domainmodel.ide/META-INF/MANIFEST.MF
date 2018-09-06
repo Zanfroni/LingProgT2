@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.t2.domainmodel.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.t2.domainmodel.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.t2.domainmodel,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.example.domainmodel.ide.contentassist.antlr,
+ org.example.domainmodel.ide.contentassist.antlr.internal
+
