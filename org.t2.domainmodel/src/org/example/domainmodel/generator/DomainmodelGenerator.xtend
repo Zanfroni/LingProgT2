@@ -17,26 +17,22 @@ class DomainmodelGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         for (e : resource.allContents.toIterable.filter(Entity)) {
             fsa.generateFile(
-                e.fullyQualifiedName.toString("/") + ".java",
+                e.fullyQualifiedName.toString("/") + ".sql",
                 e.compile)
         }
     }
  
     def compile(Entity e) ''' 
-        «IF e.eContainer.fullyQualifiedName !== null»
-            package «e.eContainer.fullyQualifiedName»;
-        «ENDIF»
-        
-        public class «e.name» «IF e.superType !== null
-                »extends «e.superType.fullyQualifiedName» «ENDIF»{
+        CREATE TABLE «e.name» «IF e.superType !== null
+                »( «e.superType.fullyQualifiedName» «ENDIF»{
             «FOR f : e.features»
                 «f.compile»
             «ENDFOR»
-        }
+        )
     '''
  
     def compile(Feature f) '''
-        private «f.type.fullyQualifiedName» «f.name»;
+        «f.name» «f.type.fullyQualifiedName» «f.type»
         
         public «f.type.fullyQualifiedName» get«f.name.toFirstUpper»() {
             return «f.name»;

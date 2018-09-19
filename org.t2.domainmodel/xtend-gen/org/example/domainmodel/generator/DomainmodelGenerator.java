@@ -16,6 +16,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.example.domainmodel.domainmodel.Entity;
 import org.example.domainmodel.domainmodel.Feature;
+import org.example.domainmodel.domainmodel.Type;
 
 @SuppressWarnings("all")
 public class DomainmodelGenerator extends AbstractGenerator {
@@ -28,7 +29,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     Iterable<Entity> _filter = Iterables.<Entity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Entity.class);
     for (final Entity e : _filter) {
       String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
-      String _plus = (_string + ".java");
+      String _plus = (_string + ".sql");
       fsa.generateFile(_plus, 
         this.compile(e));
     }
@@ -36,29 +37,17 @@ public class DomainmodelGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Entity e) {
     StringConcatenation _builder = new StringConcatenation();
-    {
-      QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(e.eContainer());
-      boolean _tripleNotEquals = (_fullyQualifiedName != null);
-      if (_tripleNotEquals) {
-        _builder.append("package ");
-        QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(e.eContainer());
-        _builder.append(_fullyQualifiedName_1);
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.newLine();
-    _builder.append("public class ");
+    _builder.append("CREATE TABLE ");
     String _name = e.getName();
     _builder.append(_name);
     _builder.append(" ");
     {
       Entity _superType = e.getSuperType();
-      boolean _tripleNotEquals_1 = (_superType != null);
-      if (_tripleNotEquals_1) {
-        _builder.append("extends ");
-        QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(e.getSuperType());
-        _builder.append(_fullyQualifiedName_2);
+      boolean _tripleNotEquals = (_superType != null);
+      if (_tripleNotEquals) {
+        _builder.append("( ");
+        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(e.getSuperType());
+        _builder.append(_fullyQualifiedName);
         _builder.append(" ");
       }
     }
@@ -73,20 +62,21 @@ public class DomainmodelGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("}");
+    _builder.append(")");
     _builder.newLine();
     return _builder;
   }
   
   public CharSequence compile(final Feature f) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("private ");
+    String _name = f.getName();
+    _builder.append(_name);
+    _builder.append(" ");
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(f.getType());
     _builder.append(_fullyQualifiedName);
     _builder.append(" ");
-    String _name = f.getName();
-    _builder.append(_name);
-    _builder.append(";");
+    Type _type = f.getType();
+    _builder.append(_type);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public ");
