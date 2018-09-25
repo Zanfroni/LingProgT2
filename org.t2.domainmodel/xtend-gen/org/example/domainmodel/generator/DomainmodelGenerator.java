@@ -1,5 +1,6 @@
 package org.example.domainmodel.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.eclipse.emf.common.util.EList;
@@ -13,10 +14,8 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.example.domainmodel.domainmodel.Entity;
 import org.example.domainmodel.domainmodel.Feature;
-import org.example.domainmodel.domainmodel.Type;
 
 @SuppressWarnings("all")
 public class DomainmodelGenerator extends AbstractGenerator {
@@ -30,8 +29,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     for (final Entity e : _filter) {
       String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
       String _plus = (_string + ".sql");
-      fsa.generateFile(_plus, 
-        this.compile(e));
+      fsa.generateFile(_plus, this.compile(e));
     }
   }
   
@@ -45,13 +43,12 @@ public class DomainmodelGenerator extends AbstractGenerator {
       Entity _superType = e.getSuperType();
       boolean _tripleNotEquals = (_superType != null);
       if (_tripleNotEquals) {
-        _builder.append("( ");
         QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(e.getSuperType());
         _builder.append(_fullyQualifiedName);
         _builder.append(" ");
       }
     }
-    _builder.append("{");
+    _builder.append("(");
     _builder.newLineIfNotEmpty();
     {
       EList<Feature> _features = e.getFeatures();
@@ -59,11 +56,32 @@ public class DomainmodelGenerator extends AbstractGenerator {
         _builder.append("    ");
         CharSequence _compile = this.compile(f);
         _builder.append(_compile, "    ");
+        {
+          EList<Feature> _features_1 = e.getFeatures();
+          int _size = e.getFeatures().size();
+          int _minus = (_size - 1);
+          Feature _get = _features_1.get(_minus);
+          boolean _notEquals = (!Objects.equal(_get, f));
+          if (_notEquals) {
+            _builder.append(",");
+          }
+        }
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append(")");
-    _builder.newLine();
+    _builder.append(") ");
+    {
+      Entity _superType_1 = e.getSuperType();
+      boolean _tripleNotEquals_1 = (_superType_1 != null);
+      if (_tripleNotEquals_1) {
+        _builder.append("inherits (");
+        String _name_1 = e.getSuperType().getName();
+        _builder.append(_name_1);
+        _builder.append(")");
+      }
+    }
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -75,49 +93,24 @@ public class DomainmodelGenerator extends AbstractGenerator {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(f.getType());
     _builder.append(_fullyQualifiedName);
     _builder.append(" ");
-    Type _type = f.getType();
-    _builder.append(_type);
+    {
+      String _not = f.getNot();
+      boolean _tripleNotEquals = (_not != null);
+      if (_tripleNotEquals) {
+        _builder.append("not ");
+      }
+    }
+    _builder.append("null ");
+    {
+      String _key = f.getKey();
+      boolean _tripleNotEquals_1 = (_key != null);
+      if (_tripleNotEquals_1) {
+        String _lowerCase = f.getKey().toLowerCase();
+        _builder.append(_lowerCase);
+        _builder.append(" key");
+      }
+    }
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("public ");
-    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(f.getType());
-    _builder.append(_fullyQualifiedName_1);
-    _builder.append(" get");
-    String _firstUpper = StringExtensions.toFirstUpper(f.getName());
-    _builder.append(_firstUpper);
-    _builder.append("() {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("return ");
-    String _name_1 = f.getName();
-    _builder.append(_name_1, "    ");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("public void set");
-    String _firstUpper_1 = StringExtensions.toFirstUpper(f.getName());
-    _builder.append(_firstUpper_1);
-    _builder.append("(");
-    QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(f.getType());
-    _builder.append(_fullyQualifiedName_2);
-    _builder.append(" ");
-    String _name_2 = f.getName();
-    _builder.append(_name_2);
-    _builder.append(") {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("this.");
-    String _name_3 = f.getName();
-    _builder.append(_name_3, "    ");
-    _builder.append(" = ");
-    String _name_4 = f.getName();
-    _builder.append(_name_4, "    ");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
     return _builder;
   }
 }

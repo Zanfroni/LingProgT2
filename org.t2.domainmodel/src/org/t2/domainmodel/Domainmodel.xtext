@@ -1,3 +1,16 @@
+
+/* Fontes e Referencias:
+ * - https://vimeo.com/71395203
+ * - https://www.youtube.com/watch?v=fTkwFJy3EeM
+ * - https://www.postgresql.org/docs/9.1/static/ddl-inherit.html
+ * - https://www.eclipse.org/Xtext/documentation/103_domainmodelnextsteps.html
+ * - https://github.com/Zanfroni/LingProgT2
+ * 
+ * Os codigos escolhidos que foram gerados são os que foram citados na parte de testes unitários.
+ */
+
+/*Integrantes: Frederico Iepsen e Gabriel Franzoni */
+
 grammar org.example.domainmodel.Domainmodel with
                                       org.eclipse.xtext.common.Terminals
  

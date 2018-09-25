@@ -22,7 +22,7 @@ class DomainmodelParsingTest {
 
 	// CREATE TABLE pessoa (
 	//	nome varchar PRIMARY KEY
-	// )
+	// );
 
 	@Test
 	def void simpleTest() {
@@ -41,9 +41,9 @@ class DomainmodelParsingTest {
 	// table1Test: RESULTADO ESPERADO:
 
 	// CREATE TABLE pessoa (
-	// 	nome varchar PRIMARY KEY
+	// 	nome varchar PRIMARY KEY,
 	// 	integer integer NULL
-	// )
+	// );
 
 	@Test
 	def void table1Test() {
@@ -63,12 +63,12 @@ class DomainmodelParsingTest {
 
 	// CREATE TABLE turma (
 	// 	id integer PRIMARY KEY
-	// )
+	// );
 	// 
 	// CREATE TABLE pessoa (
-	// 	nome varchar PRIMARY KEY
-	//	idade integer NULL
-	// ) inherits turma
+	// 	nome varchar PRIMARY KEY,
+	//	idade integer NULL,
+	// ) inherits (turma);
 	
 	@Test
 	def void inheritanceTest() {
@@ -91,15 +91,15 @@ class DomainmodelParsingTest {
 	}
 	
 	// CREATE TABLE turma (
-	// 	id integer PRIMARY KEY
+	// 	id integer PRIMARY KEY,
 	//	data date NULL
-	// )
+	// );
 	// 
 	// CREATE TABLE pessoa (
-	// 	nome varchar PRIMARY KEY
-	//	idade integer NULL
+	// 	nome varchar PRIMARY KEY,
+	//	idade integer NULL,
 	//	cadastro varchar FOREIGN KEY
-	// ) inherits turma
+	// ) inherits (turma);
 
 	@Test
 	def void advancedExampleTest() {
